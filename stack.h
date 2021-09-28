@@ -17,17 +17,17 @@
 class Stack {
 
 public:
-
+    Stack();
     /* 
      * write all your public method prototypes here
      * this includes you constructor and destructor
      */
+    bool push(int, const string*);
+    int pop();
+    int peek();
+    bool isEmpty();
     
 private:
-
-    /* 
-     * write all your private method prototypes here
-     */
 
     // these are the only attributes you need. do not modify them or add any
     int top; // this is your top index
