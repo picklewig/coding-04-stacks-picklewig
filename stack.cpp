@@ -26,14 +26,14 @@ Data Stack::pop(){
     if(isEmpty()){
         throw 0;
     }
-    return stack[top--];
+    return *stack[top--];
 }
 
 Data Stack::peek(){
     if(isEmpty()){
         throw 0;
     }
-    return stack[top];
+    return *stack[top];
 }
 
 // function to check if stack is empty
