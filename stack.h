@@ -23,8 +23,8 @@ public:
      * this includes you constructor and destructor
      */
     bool push(int, const string*);
-    int pop();
-    int peek();
+    Data pop();
+    Data peek();
     bool isEmpty();
     
 private:
