@@ -52,7 +52,26 @@ int main() {
     
     /* first call isEmpty(), peek(), and pop() to show what happens when
      * you do that on an empty stack */
-    
+    if(stack.isEmpty()){
+        cout << "stack is empty" << endl;
+    }
+    else{
+        cout << "stack is not empty" << endl;
+    }
+    try{
+        cout << stack.peek().id << " was peeked in stack" << endl;
+        cout << stack.peek().information << " was peeked in stack" << endl;
+    }
+    catch(int errorNum){
+        cout << "can not peek empty stack" << endl;
+    }
+    try{
+        stack.pop();
+        cout << "removing number from stack" << endl;
+    }
+    catch(int errorNum){
+        cout << "stack underflow, cannot pop from an empty stack" << endl;
+    }
     /*
      * Now perform an exhaustive series of tests on your stack. Push all the
      * cases. Pop all the cases. Randomly push and pop cases. Test peek() and
@@ -65,7 +84,39 @@ int main() {
      * when you try and push negative ids and/or empty strings, which your
      * stack should not accept.
      */
-
+    std::string x(data[number_test_cases]);
+    for(int index{0}; index < number_test_cases; index++){
+        std::string x(data[index]);
+        int operationNum = (rand() % 3);
+        switch(operationNum){
+            case 0:
+                if(stack.push(ids[index], &x)){ //string input problems with push
+                    cout << "adding number to stack" << endl;
+                }
+                else{
+                    cout << "cannot push, stack is full or data is invalid" << endl;
+                }
+                break;
+            case 1:
+                try{
+                    stack.pop();
+                    cout << "removing number from stack" << endl;
+                }
+                catch(int errorNum){
+                    cout << "stack underflow, cannot pop from an empty stack" << endl;
+                }
+                break;
+            case 2:
+                try{
+                    cout << stack.peek().id << " was peeked in stack" << endl;
+                    cout << stack.peek().information << " was peeked in stack" << endl;
+                }
+                catch(int errorNum){
+                    cout << "can not peek empty stack" << endl;
+                }
+                break;
+        }
+    }
 
     return 0;
 }

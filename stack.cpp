@@ -12,13 +12,13 @@ Stack::Stack(){
 
 // function to insert data into stack
 bool Stack::push(int x, const string* info){
-    if(top < STACK_SIZE-1)
+    if(top < STACK_SIZE-1 and x >= 0 and *info != "")
     {
         stack[++top] = new Data;
         stack[top]->id = x;
         stack[top]->information = *info;
     }
-    return top < STACK_SIZE-1;
+    return top < STACK_SIZE-1 and x >= 0 and *info != "";
 }
 
 // function to remove data from the top of the stack
