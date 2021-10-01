@@ -35,7 +35,7 @@ int main() {
     /**************************************************************/
     /* MODIFY THE FILE FROM HERE DOWN */
     /**************************************************************/
-
+    std::string temp; //temporary string variable to be passed into for loop
     /*
      * At this point you have two parallel arrays. A simple integer array (ids)
      * that holds random integers, and 2D character array (which is a 
@@ -70,8 +70,44 @@ int main() {
         cout << "removing number from stack" << endl;
     }
     catch(int errorNum){
-        cout << "stack underflow, cannot pop from an empty stack" << endl;
+        cout << "stack underflow, cannot pop from an empty stack" << endl << endl;
     }
+
+
+
+
+    temp = data[0];
+    if(stack.push(ids[0], &temp)){
+        cout << "adding number to stack" << endl;
+    }
+    else{
+        cout << "cannot push, stack is full or data is invalid" << endl;
+    }
+    try{
+        cout << stack.peek().id << " was peeked in stack" << endl;
+        cout << stack.peek().information << " was peeked in stack" << endl;
+    }
+    catch(int errorNum){
+        cout << "can not peek empty stack" << endl;
+    }
+    try{
+        stack.pop();
+        cout << "removing number from stack" << endl;
+    }
+    catch(int errorNum){
+        cout << "stack underflow, cannot pop from an empty stack" << endl << endl;
+    }
+    try{
+        cout << stack.peek().id << " was peeked in stack" << endl;
+        cout << stack.peek().information << " was peeked in stack" << endl;
+    }
+    catch(int errorNum){
+        cout << "can not peek empty stack" << endl << endl;
+    }
+
+
+
+
     /*
      * Now perform an exhaustive series of tests on your stack. Push all the
      * cases. Pop all the cases. Randomly push and pop cases. Test peek() and
@@ -84,13 +120,12 @@ int main() {
      * when you try and push negative ids and/or empty strings, which your
      * stack should not accept.
      */
-    std::string x(data[number_test_cases]);
     for(int index{0}; index < number_test_cases; index++){
-        std::string x(data[index]);
+        temp = data[index];
         int operationNum = (rand() % 3);
         switch(operationNum){
-            case 0:
-                if(stack.push(ids[index], &x)){ //string input problems with push
+            case 0: //random segmentation faults
+                if(stack.push(ids[index], &temp)){
                     cout << "adding number to stack" << endl;
                 }
                 else{
@@ -98,7 +133,7 @@ int main() {
                 }
                 break;
             case 1:
-                try{
+                try{ //random segmentation faults
                     stack.pop();
                     cout << "removing number from stack" << endl;
                 }
