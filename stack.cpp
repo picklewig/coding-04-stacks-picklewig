@@ -24,11 +24,19 @@ bool Stack::push(int x, const string* info){
 }
 
 // function to remove data from the top of the stack
-Data Stack::pop(){
+bool Stack::pop(Data &myData){
+    bool popped = true;
     if(isEmpty()){
-        throw 0;
+        popped = false;
+        myData.id = -1;
+        myData.information = "";
     }
-    return *stack[top--];
+    else{
+        myData.id = stack[top]->id;
+        myData.information = stack[top]->information;
+        delete stack[top--];
+    }
+    return popped;
 }
 
 Data Stack::peek(){

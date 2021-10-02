@@ -23,7 +23,7 @@ public:
      * this includes you constructor and destructor
      */
     bool push(int, const string*);
-    Data pop();
+    bool pop(Data&);
     Data peek();
     bool isEmpty();
     

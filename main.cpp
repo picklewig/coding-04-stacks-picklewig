@@ -45,13 +45,14 @@ int main() {
     
     // declare the stack
     Stack stack;
-    
+    Data myData;
     /*****************************************
      * Perform your stack tests starting here
      *****************************************/
     
     /* first call isEmpty(), peek(), and pop() to show what happens when
      * you do that on an empty stack */
+    cout << endl;
     if(stack.isEmpty()){
         cout << "stack is empty" << endl;
     }
@@ -65,13 +66,12 @@ int main() {
     catch(int errorNum){
         cout << "can not peek empty stack" << endl;
     }
-    try{
-        stack.pop();
-        cout << "removing number from stack" << endl;
+    if(stack.pop(myData)){
+        cout << "removed data struct from stack " << endl;
+        cout << "removed id was: " << myData.id << endl;
+        cout << "removed information was: " << myData.information << endl;
     }
-    catch(int errorNum){
-        cout << "stack underflow, cannot pop from an empty stack" << endl << endl;
-    }
+
 
 
 
@@ -91,7 +91,7 @@ int main() {
         cout << "can not peek empty stack" << endl;
     }
     try{
-        stack.pop();
+        stack.pop(myData);
         cout << "removing number from stack" << endl;
     }
     catch(int errorNum){
@@ -124,7 +124,7 @@ int main() {
         temp = data[index];
         int operationNum = (rand() % 3);
         switch(operationNum){
-            case 0: //random segmentation faults
+            case 0:
                 if(stack.push(ids[index], &temp)){
                     cout << "adding number to stack" << endl;
                 }
@@ -133,8 +133,8 @@ int main() {
                 }
                 break;
             case 1:
-                try{ //random segmentation faults
-                    stack.pop();
+                try{ //segmentation fault
+                    stack.pop(myData);
                     cout << "removing number from stack" << endl;
                 }
                 catch(int errorNum){
