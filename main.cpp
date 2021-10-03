@@ -59,11 +59,11 @@ int main() {
     else{
         cout << "stack is not empty" << endl;
     }
-    try{
-        cout << stack.peek().id << " was peeked in stack" << endl;
-        cout << stack.peek().information << " was peeked in stack" << endl;
+    if(stack.peek(myData)){
+        cout << myData.id << " was peeked from top of stack" << endl;
+        cout << myData.information << " was peeked from stack" << endl;
     }
-    catch(int errorNum){
+    else{
         cout << "can not peek empty stack" << endl;
     }
     if(stack.pop(myData)){
@@ -71,43 +71,9 @@ int main() {
         cout << "removed id was: " << myData.id << endl;
         cout << "removed information was: " << myData.information << endl;
     }
-
-
-
-
-
-    temp = data[0];
-    if(stack.push(ids[0], &temp)){
-        cout << "adding number to stack" << endl;
-    }
     else{
-        cout << "cannot push, stack is full or data is invalid" << endl;
+        cout << "can not pop from empty stack" << endl;
     }
-    try{
-        cout << stack.peek().id << " was peeked in stack" << endl;
-        cout << stack.peek().information << " was peeked in stack" << endl;
-    }
-    catch(int errorNum){
-        cout << "can not peek empty stack" << endl;
-    }
-    try{
-        stack.pop(myData);
-        cout << "removing number from stack" << endl;
-    }
-    catch(int errorNum){
-        cout << "stack underflow, cannot pop from an empty stack" << endl << endl;
-    }
-    try{
-        cout << stack.peek().id << " was peeked in stack" << endl;
-        cout << stack.peek().information << " was peeked in stack" << endl;
-    }
-    catch(int errorNum){
-        cout << "can not peek empty stack" << endl << endl;
-    }
-
-
-
-
     /*
      * Now perform an exhaustive series of tests on your stack. Push all the
      * cases. Pop all the cases. Randomly push and pop cases. Test peek() and
@@ -122,9 +88,10 @@ int main() {
      */
     for(int index{0}; index < number_test_cases; index++){
         temp = data[index];
-        int operationNum = (rand() % 3);
+        int operationNum = (rand() % 4);
         switch(operationNum){
             case 0:
+                cout << endl << "Calling push" << endl;
                 if(stack.push(ids[index], &temp)){
                     cout << "adding number to stack" << endl;
                 }
@@ -133,23 +100,34 @@ int main() {
                 }
                 break;
             case 1:
-                try{ //segmentation fault
-                    stack.pop(myData);
-                    cout << "removing number from stack" << endl;
+                cout << endl << "Calling pop" << endl;
+                if(stack.pop(myData)){
+                    cout << "removed data struct from stack " << endl;
+                    cout << "removed id was: " << myData.id << endl;
+                    cout << "removed information was: " << myData.information << endl;
                 }
-                catch(int errorNum){
-                    cout << "stack underflow, cannot pop from an empty stack" << endl;
+                else{
+                    cout << "can not pop from empty stack" << endl;
                 }
                 break;
             case 2:
-                try{
-                    cout << stack.peek().id << " was peeked in stack" << endl;
-                    cout << stack.peek().information << " was peeked in stack" << endl;
+                cout << endl << "Calling peek" << endl;
+                if(stack.peek(myData)){
+                    cout << myData.id << " was peeked from top of stack" << endl;
+                    cout << myData.information << " was peeked from stack" << endl;
                 }
-                catch(int errorNum){
+                else{
                     cout << "can not peek empty stack" << endl;
                 }
                 break;
+            case 3:
+                cout << endl << "Calling isEmpty" << endl;
+                if(stack.isEmpty()){
+                    cout << "stack is empty" << endl;
+                }
+                else{
+                    cout << "stack is not empty" << endl;
+                }
         }
     }
 

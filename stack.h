@@ -24,7 +24,7 @@ public:
      */
     bool push(int, const string*);
     bool pop(Data&);
-    Data peek();
+    bool peek(Data&);
     bool isEmpty();
     
 private:

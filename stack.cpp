@@ -39,11 +39,18 @@ bool Stack::pop(Data &myData){
     return popped;
 }
 
-Data Stack::peek(){
+bool Stack::peek(Data &myData){
+    bool peeked = true;
     if(isEmpty()){
-        throw 0;
+        peeked = false;
+        myData.id = -1;
+        myData.information = "";
     }
-    return *stack[top];
+    else{
+        myData.id = stack[top]->id;
+        myData.information = stack[top]->information;
+    }
+    return peeked;
 }
 
 // function to check if stack is empty
