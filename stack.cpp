@@ -1,7 +1,9 @@
-/*
- * Your comment header here
- * modify this file as needed to complete the assignment
- */
+/*****************
+ * author: Isaac Shepherd
+ * file: stack.cpp
+ * defines methods for class Stack, incorporates use of the user defined data struct "Data"
+ * includes stack.h
+ ******************/
 
 // each cpp includes ONLY it's header directly!
 #include "stack.h"

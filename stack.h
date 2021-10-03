@@ -1,7 +1,8 @@
-/*
- * Your comment header here
- * modify this file as needed to complete the assignment
- */
+/****************
+ * Author: Isaac Shepherd
+ * file: stack.h
+ * header file for stack.cpp, holds class prototypes and defines max size of stack array
+ ****************/
 
 #ifndef STACK_H
 #define STACK_H

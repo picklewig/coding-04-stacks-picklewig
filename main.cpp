@@ -36,6 +36,7 @@ int main() {
     /* MODIFY THE FILE FROM HERE DOWN */
     /**************************************************************/
     std::string temp; //temporary string variable to be passed into for loop
+    int operationNum; //declared to be used outside for loop
     /*
      * At this point you have two parallel arrays. A simple integer array (ids)
      * that holds random integers, and 2D character array (which is a 
@@ -88,7 +89,7 @@ int main() {
      */
     for(int index{0}; index < number_test_cases; index++){
         temp = data[index];
-        int operationNum = (rand() % 4);
+        operationNum = (rand() % 4);
         switch(operationNum){
             case 0:
                 cout << endl << "Calling push" << endl;
@@ -133,7 +134,7 @@ int main() {
 
     for(int index{0}; index < number_test_cases; index++){
         temp = data[index];
-        int operationNum = (rand() % 4);
+        operationNum = (rand() % 4);
         switch(operationNum){
             case 0:
                 cout << endl << "Calling push" << endl;
@@ -178,7 +179,7 @@ int main() {
 
     for(int index{0}; index < number_test_cases; index++){
         temp = data[index];
-        int operationNum = (rand() % 4);
+        operationNum = (rand() % 4);
         switch(operationNum){
             case 0:
                 cout << endl << "Calling push" << endl;
