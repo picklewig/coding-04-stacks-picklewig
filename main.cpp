@@ -131,5 +131,94 @@ int main() {
         }
     }
 
+    for(int index{0}; index < number_test_cases; index++){
+        temp = data[index];
+        int operationNum = (rand() % 4);
+        switch(operationNum){
+            case 0:
+                cout << endl << "Calling push" << endl;
+                if(stack.push(ids[index], &temp)){
+                    cout << "adding number to stack" << endl;
+                }
+                else{
+                    cout << "cannot push, stack is full or data is invalid" << endl;
+                }
+                break;
+            case 1:
+                cout << endl << "Calling pop" << endl;
+                if(stack.pop(myData)){
+                    cout << "removed data struct from stack " << endl;
+                    cout << "removed id was: " << myData.id << endl;
+                    cout << "removed information was: " << myData.information << endl;
+                }
+                else{
+                    cout << "can not pop from empty stack" << endl;
+                }
+                break;
+            case 2:
+                cout << endl << "Calling peek" << endl;
+                if(stack.peek(myData)){
+                    cout << myData.id << " was peeked from top of stack" << endl;
+                    cout << myData.information << " was peeked from stack" << endl;
+                }
+                else{
+                    cout << "can not peek empty stack" << endl;
+                }
+                break;
+            case 3:
+                cout << endl << "Calling isEmpty" << endl;
+                if(stack.isEmpty()){
+                    cout << "stack is empty" << endl;
+                }
+                else{
+                    cout << "stack is not empty" << endl;
+                }
+        }
+    }
+
+    for(int index{0}; index < number_test_cases; index++){
+        temp = data[index];
+        int operationNum = (rand() % 4);
+        switch(operationNum){
+            case 0:
+                cout << endl << "Calling push" << endl;
+                if(stack.push(ids[index], &temp)){
+                    cout << "adding number to stack" << endl;
+                }
+                else{
+                    cout << "cannot push, stack is full or data is invalid" << endl;
+                }
+                break;
+            case 1:
+                cout << endl << "Calling pop" << endl;
+                if(stack.pop(myData)){
+                    cout << "removed data struct from stack " << endl;
+                    cout << "removed id was: " << myData.id << endl;
+                    cout << "removed information was: " << myData.information << endl;
+                }
+                else{
+                    cout << "can not pop from empty stack" << endl;
+                }
+                break;
+            case 2:
+                cout << endl << "Calling peek" << endl;
+                if(stack.peek(myData)){
+                    cout << myData.id << " was peeked from top of stack" << endl;
+                    cout << myData.information << " was peeked from stack" << endl;
+                }
+                else{
+                    cout << "can not peek empty stack" << endl;
+                }
+                break;
+            case 3:
+                cout << endl << "Calling isEmpty" << endl;
+                if(stack.isEmpty()){
+                    cout << "stack is empty" << endl;
+                }
+                else{
+                    cout << "stack is not empty" << endl;
+                }
+        }
+    }
     return 0;
 }
