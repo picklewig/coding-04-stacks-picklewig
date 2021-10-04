@@ -13,12 +13,12 @@ Stack::Stack(){
 }
 
 // function to insert data into stack
-bool Stack::push(int x, const string* info){
+bool Stack::push(int Id, const string* info){
     bool pushed = false;
-    if(top < STACK_SIZE-1 and x >= 0 and *info != "")
+    if(top < STACK_SIZE-1 and Id >= 0 and *info != "")
     {
         stack[++top] = new Data;
-        stack[top]->id = x;
+        stack[top]->id = Id;
         stack[top]->information = *info;
         pushed = true;
     }

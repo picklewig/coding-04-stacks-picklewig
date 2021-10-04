@@ -19,6 +19,7 @@ class Stack {
 
 public:
     Stack();
+    ~Stack();
     /* 
      * write all your public method prototypes here
      * this includes you constructor and destructor
